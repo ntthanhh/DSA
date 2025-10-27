@@ -1,0 +1,15 @@
+# Git ignore file for DSA project 
+# Ignore compiled files
+*.exe
+*.out
+*.o
+
+# Ignore temporary folders
+/build/
+/bin/
+
+# Ignore IDE files
+*.vscode
+*.cbp
+*.depend
+*.layout
