@@ -1,17 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> pii;
-typedef pair<int, pair<int, int>> piii;
-
-#define FOR(i, a, b) for (int i = (a); i <= (b); ++i)
-#define FORd(i, a, b) for (int i = (a); i >= (b); --i)
-#define fi first
-#define se second
-#define pb push_back
-#define ll long long
-#define mp make_pair
-
 const int MAXN = 20;
 int n, k, a[MAXN], arr[MAXN], ok = 0, ans = 1;
 
@@ -46,7 +35,7 @@ int main(){
     cin >> n;
     a[1] = n;
     while(!ok){
-		FOR(i, 1, ans) cout << a[i] << " ";
+		for(int i = 1; i <= ans; ++i) cout << a[i] << " ";
 		cout << endl;
     	sinh();
     }

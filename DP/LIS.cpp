@@ -1,0 +1,28 @@
+//O(n^2)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n; cin >> n;
+
+    vector<int> a(n); 
+    for(int i = 0; i < n; ++i) cin >> a[i];
+
+    vector<int> dp(n, 1);
+    //dp[i] : độ dài của dãy con tăng dài nhất kết thúc ở chỉ số i
+    //dp[i] = max(dp[i], dp[j] + 1) Nếu a[i] > a[j]
+     
+    for(int i = 0; i < n; ++i){
+        for(int j = 0; j < i; ++j){
+            if(a[i] > a[j]){
+                dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+    
+    cout << *max_element(dp.begin(), dp.end()) << endl;
+    return 0;
+}

@@ -1,22 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> pii;
-typedef pair<int, pair<int, int>> piii;
-
-#define FOR(i, a, b) for (int i = (a); i <= (b); ++i)
-#define FORd(i, a, b) for (int i = (a); i >= (b); --i)
-#define fi first
-#define se second
-#define pb push_back
-#define ll long long
-#define mp make_pair
-
 const int MAXN = 20; 
 int n, a[MAXN], ok = 0;
 
 void ktao(){
-    FOR(i, 1, n) a[i] = 0;
+    for(int i = 1; i <= n; ++i) a[i] = 0;
 }
 
 void sinh(){
@@ -38,7 +27,7 @@ int main(){
     ktao();
     while(!ok){
         cout << a[1];
-        FOR(i, 2, n){
+        for(int i = 2; i <= n; ++i){
             int gray = a[i] ^ a[i - 1];
             cout << gray;
         }
