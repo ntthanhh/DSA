@@ -19,12 +19,7 @@ void nhap(){
 void Update(){
     if(cost > FOPT){
         FOPT = cost;
-        for(int i = 1; i <= n; ++i) XOPT[i] = X[i];
     }
-}
-
-void Result(){
-    for(int i = 1; i <= n; ++i) cout << XOPT[i] << " ";
 }
 
 void Branch_And_Bound(int i){
@@ -45,5 +40,5 @@ void Branch_And_Bound(int i){
 int main(){
     nhap();
     Branch_And_Bound(1);
-    Result();
+    cout << FOPT << endl;
 }

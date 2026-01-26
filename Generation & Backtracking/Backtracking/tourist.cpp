@@ -2,7 +2,7 @@
 using namespace std;
 
 int n, c[105][105], X[105];
-int visited[105];
+int visited[105], res[105];
 int d = 0, ans = INT_MAX, cmin = INT_MAX;
 
 // Cấu hình X1, X2, X3, ... , Xn
@@ -29,8 +29,13 @@ void Try(int i){
             X[i] = j;
             d += c[X[i - 1]][X[i]];
             if(i == n){
-                // Cập nhật kết quả
-                ans = min(ans, d + c[X[n]][1]);
+                int total = d + c[X[n]][1];
+                if(total < ans){
+                    ans = total;
+                    // LƯU ĐƯỜNG ĐI TỐT NHẤT
+                    for(int k = 1; k <= n; ++k)
+                        res[k] = X[k];
+                }
             }
             else if(d + (n - i + 1) * cmin < ans){
                 Try(i + 1);
@@ -47,4 +52,6 @@ int main(){
     X[1] = 1; visited[1] = 1;
     Try(2);
     cout << ans << endl;
+    for(int i = 1; i <= n; ++i) cout << res[i] << " ";
+    cout << 1;
 }
