@@ -16,7 +16,22 @@ int Lomuto_Partition(int a[], int l, int r){
 }
 
 int Hoare_Partition(int a[], int l, int r){
-    
+    int x = a[l];
+    int i = l - 1, j = r + 1;
+    while(true){
+        do{
+            ++i;
+        }while(a[i] < x);
+
+        do{
+            --j;
+        }while(a[j] > x);
+
+        if(i < j) swap(a[i], a[j]);
+        else return j;
+
+    }
+    return -1;
 }
 
 void QuickSort(int a[], int l, int r){
