@@ -1,0 +1,44 @@
+//SẮP ĐẶT XÂU KÝ TỰ
+
+// Cho xâu ký tự S bao gồm các ký tự và số D. Nhiệm vụ của bạn là kiểm tra xem ta có thể sắp đặt lại các ký tự trong S để tất cả các ký tự giống nhau đều có khoảng cách là D hay không? Đưa ra 1 nếu có thể sắp đặt lại các ký tự trong S thỏa mãn yêu cầu bài toán, ngược lại đưa ra -1.
+
+// Input:
+// Dòng đầu tiên đưa vào số lượng bộ test T.
+// Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test gồm hai dòng: dòng thứ nhất là số D; dòng tiếp theo là xâu S.
+// T, S, D thỏa mãn ràng buộc: 1≤T≤100;  1≤length(S)≤10000; 1≤D≤100.
+
+// Output:
+// Đưa ra kết quả mỗi test theo từng dòng.
+
+
+// Input           Output
+// 2
+// 2               1
+// ABB
+// 2               -1
+// AAA
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int k; cin >> k;
+        string s; cin >> s;
+        int n = s.size();
+
+        map<char, int> mp;
+        for(int i = 0; i < n; ++i){
+            mp[s[i]]++;
+        }
+
+        int MaxChar = INT_MIN;
+        for(auto x : mp){
+            if(x.second > MaxChar) MaxChar = x.second;
+        }
+
+        if(MaxChar > (n + k - 1)/k) cout << -1 << endl;
+        else cout << 1 << endl;
+    }
+}
