@@ -54,7 +54,6 @@
 // 6  7  2
 // 6  9  6
 
-
 #include<bits/stdc++.h>
 using namespace std;
 

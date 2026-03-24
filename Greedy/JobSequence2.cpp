@@ -24,3 +24,40 @@
 // 3 2 27
 // 4 1 25
 // 5 1 15
+
+#include<bits/stdc++.h>
+using namespace std;
+
+struct Job{
+    int JobId, Deadline, Profit;
+};
+
+bool cmp(Job x, Job y){
+    return x.Profit > y.Profit;
+}
+
+int main(){
+    int t; cin >> t;
+    while(t--){
+        int n; cin >> n;
+
+        Job a[n + 5];
+        for(int i = 0; i < n; ++i) cin >> a[i].JobId >> a[i].Deadline >> a[i].Profit;
+        
+        sort(a, a + n, cmp);
+
+        int used[1005] = {0}, ans = 0, cnt = 0;
+        for(int i = 0; i < n; ++i){
+            for(int j = a[i].Deadline - 1; j >= 0; --j){
+                if(!used[j]){
+                    ans += a[i].Profit;
+                    ++cnt;
+                    used[j] = 1;
+                    break;
+                }
+            }
+        }
+
+        cout << cnt << " " <<  ans << endl;
+    }
+}

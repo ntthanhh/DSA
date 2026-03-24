@@ -31,7 +31,6 @@
 //     giảm in-degree[v]
 //     nếu in-degree[v] == 0 → đẩy vào queue
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
